@@ -6,9 +6,524 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#FFFFFF">
   <title>Mow It · shipped hub (#114 / #116)</title>
+  <link rel="stylesheet" href="hub.css">
+
 </head>
 <body>
-<p class="caption">Mow It · #114 / #116 · disposable click-through</p>
-<p>Source: takticllc/it-family docs/proto/mow-it-app/index.html @ cursor/mow-it-app-hub-fd72 (85323 bytes). Full body could not be inlined in this MCP call from the executor; parent should retry create_or_update_file with /tmp/mow-it-source.html contents.</p>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="brandmark-svg" viewBox="0 0 112 112">
+      <rect width="112" height="112" rx="25" fill="var(--DSColor-brandPrimary)"/>
+      <g fill="none" stroke="var(--DSColor-textOnBrand)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M28 38h10a3 3 0 0 1 3 3v2"/>
+        <path d="M31 43 L58 78"/>
+        <path d="M50 74 h28 a8 8 0 0 1 8 8 v2 H54 a6 6 0 0 1-6-6z"/>
+        <rect x="62" y="62" width="16" height="12" rx="3"/>
+        <circle cx="50" cy="88" r="8"/>
+        <circle cx="50" cy="88" r="3.2"/>
+        <circle cx="80" cy="90" r="6"/>
+        <circle cx="80" cy="90" r="2.4"/>
+      </g>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 14 14">
+      <path d="M2 2l10 10M12 2L2 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="stage">
+    <p class="caption">Mow It · #114 / #116 · disposable click-through · dropdown jumps the phone</p>
+
+    <div class="proto-tools">
+      <label class="proto-tools-label" for="screenJump">Proto screen</label>
+      <select class="proto-select" id="screenJump">
+        <optgroup label="Login">
+          <option value="splash-client">Splash (client copy)</option>
+          <option value="splash-pro">Splash (Sign up as a Pro)</option>
+          <option value="email">Email sign-in / sign-up</option>
+          <option value="forgot">Forgot password</option>
+        </optgroup>
+        <optgroup label="Client Home">
+          <option value="pro-list-empty">Pro list empty</option>
+          <option value="pro-list">Pro list (Pros)</option>
+          <option value="booked-home">Booked Home</option>
+          <option value="next-mow-detail">Next mow detail sheet</option>
+          <option value="book-mow">Book a Mow</option>
+          <option value="settings-client">Settings</option>
+        </optgroup>
+        <optgroup label="Pro Home">
+          <option value="onboarding">Onboarding</option>
+          <option value="pro-home">Pro Home</option>
+          <option value="pro-home-empty">Pro Home empty</option>
+          <option value="pro-home-stripe">Pro Home DEBUG Stripe</option>
+          <option value="settings-pro">Settings</option>
+          <option value="job-detail">Job detail (proposed)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="phone">
+      <div class="screen" id="screen">
+        <div class="statusbar" aria-hidden="true">
+          <span>9:41</span>
+          <span class="statusbar-icons">
+            <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="0.6"/><rect x="4.5" y="5" width="3" height="7" rx="0.6"/><rect x="9" y="2.5" width="3" height="9.5" rx="0.6"/><rect x="13.5" y="0" width="3" height="12" rx="0.6"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.4c2.2 0 4.2.8 5.7 2.2l-1.1 1.1A6.4 6.4 0 0 0 8 4.1 6.4 6.4 0 0 0 3.4 5.7L2.3 4.6A8 8 0 0 1 8 2.4Zm0 3.3c1.3 0 2.5.5 3.4 1.3L10.3 8A3.2 3.2 0 0 0 8 7a3.2 3.2 0 0 0-2.3.9L4.6 7A4.8 4.8 0 0 1 8 5.7Zm0 3.3c.6 0 1.1.2 1.5.6L8 11.1 6.5 9.6c.4-.4.9-.6 1.5-.6Z"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="1" width="21" height="10" rx="2.2" stroke="currentColor" fill="none" stroke-width="1"/><rect x="2" y="2.5" width="16" height="7" rx="1.2" fill="currentColor"/><rect x="22.2" y="4" width="1.6" height="4" rx="0.6" fill="currentColor"/></svg>
+          </span>
+        </div>
+
+        <!-- Login: Splash client -->
+        <main class="pane splash" data-pane="splash-client">
+          <div class="home-spacer"></div>
+          <div class="splash-hero">
+            <div class="brandmark-sm" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+            <h1 class="splash-name">Mow It</h1>
+            <p class="splash-tag">Book a lawn mow in minutes.</p>
+          </div>
+          <div class="home-spacer"></div>
+          <div class="splash-actions">
+            <button class="btn-apple" type="button">
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M12.8 10.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.6.8-3.3.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2.1-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.5zM10.8 4.3c.6-.8 1.1-1.9.9-3-1 .1-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.3-.6 3-1.5z"/></svg>
+              Sign in with Apple
+            </button>
+            <button class="btn-secondary" type="button">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="#EA4335" d="M10 4.4c1.5 0 2.9.5 4 1.5l3-3C15.2 1.1 12.8 0 10 0 6.1 0 2.7 2.2 1.1 5.4l3.5 2.7C5.5 6 7.6 4.4 10 4.4z"/>
+                <path fill="#4285F4" d="M19.6 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.4c-.2 1.2-1 2.3-2 3l3.2 2.5c1.9-1.7 3-4.3 3-7.3z"/>
+                <path fill="#FBBC05" d="M4.6 12.1A6 6 0 0 1 4.2 10c0-.7.1-1.4.4-2.1L1.1 5.4A10 10 0 0 0 0 10c0 1.6.4 3.1 1.1 4.5l3.5-2.4z"/>
+                <path fill="#34A853" d="M10 20c2.7 0 5-.9 6.7-2.4l-3.2-2.5c-.9.6-2.1 1-3.5 1-2.4 0-4.5-1.6-5.3-3.8L1.1 14.6C2.7 17.8 6.1 20 10 20z"/>
+              </svg>
+              Sign in with Google
+            </button>
+            <button class="btn-secondary" type="button" data-go="email">Sign in with email</button>
+          </div>
+          <button class="splash-toggle" type="button" data-go="splash-pro">Are you a pro? <strong>Sign up as a Pro</strong></button>
+        </main>
+
+        <!-- Login: Splash pro -->
+        <main class="pane splash" data-pane="splash-pro">
+          <div class="home-spacer"></div>
+          <div class="splash-hero">
+            <div class="brandmark-sm" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+            <h1 class="splash-name">Mow It</h1>
+            <p class="splash-tag">Sign up to offer your services.</p>
+          </div>
+          <div class="home-spacer"></div>
+          <div class="splash-actions">
+            <button class="btn-apple" type="button">
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M12.8 10.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.6.8-3.3.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2.1-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.5zM10.8 4.3c.6-.8 1.1-1.9.9-3-1 .1-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.3-.6 3-1.5z"/></svg>
+              Sign up with Apple
+            </button>
+            <button class="btn-secondary" type="button">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill="#EA4335" d="M10 4.4c1.5 0 2.9.5 4 1.5l3-3C15.2 1.1 12.8 0 10 0 6.1 0 2.7 2.2 1.1 5.4l3.5 2.7C5.5 6 7.6 4.4 10 4.4z"/>
+                <path fill="#4285F4" d="M19.6 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.4c-.2 1.2-1 2.3-2 3l3.2 2.5c1.9-1.7 3-4.3 3-7.3z"/>
+                <path fill="#FBBC05" d="M4.6 12.1A6 6 0 0 1 4.2 10c0-.7.1-1.4.4-2.1L1.1 5.4A10 10 0 0 0 0 10c0 1.6.4 3.1 1.1 4.5l3.5-2.4z"/>
+                <path fill="#34A853" d="M10 20c2.7 0 5-.9 6.7-2.4l-3.2-2.5c-.9.6-2.1 1-3.5 1-2.4 0-4.5-1.6-5.3-3.8L1.1 14.6C2.7 17.8 6.1 20 10 20z"/>
+              </svg>
+              Sign up with Google
+            </button>
+            <button class="btn-secondary" type="button" data-go="email" data-email-mode="signUp">Sign up with email</button>
+          </div>
+          <button class="splash-toggle" type="button" data-go="splash-client">Looking to book a service? <strong>Sign in as a client</strong></button>
+        </main>
+
+        <!-- Login: Email -->
+        <main class="pane form-pane" data-pane="email">
+          <div class="ios-nav">
+            <button class="nav-text" type="button" id="emailCancel">Cancel</button>
+            <h1 class="ios-nav-title" id="emailTitle">Sign In</h1>
+            <span></span>
+          </div>
+          <div class="form-scroll">
+            <div class="segment" role="tablist" aria-label="Mode">
+              <button type="button" id="modeSignIn" aria-pressed="true">Sign In</button>
+              <button type="button" id="modeSignUp" aria-pressed="false">Sign Up</button>
+            </div>
+            <div class="group">
+              <div class="row"><input id="emailField" type="email" placeholder="Email" autocomplete="username"></div>
+              <div class="row">
+                <input id="passwordField" type="password" placeholder="Password" autocomplete="current-password">
+                <button class="eye" type="button" data-eye="passwordField" aria-label="Show password">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <div class="row hidden" id="confirmRow">
+                <input id="confirmField" type="password" placeholder="Confirm Password" autocomplete="new-password">
+                <button class="eye" type="button" data-eye="confirmField" aria-label="Show password">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+            <p class="group-foot hidden" id="passwordReqs">8+ characters, with at least 1 number and 1 special character</p>
+            <div class="group hidden" id="suggestGroup">
+              <button class="row row-link" type="button" id="suggestPassword">Suggest Strong Password</button>
+            </div>
+            <div class="group" id="forgotGroup">
+              <button class="row row-link" type="button" data-go="forgot">Forgot Password?</button>
+            </div>
+            <div class="inset-btn">
+              <button class="btn-primary" type="button" id="emailSubmit">Sign In</button>
+            </div>
+          </div>
+        </main>
+
+        <!-- Login: Forgot password -->
+        <main class="pane form-pane" data-pane="forgot">
+          <div class="ios-nav">
+            <button class="nav-text" type="button" data-go="email">Done</button>
+            <h1 class="ios-nav-title">Reset Password</h1>
+            <span></span>
+          </div>
+          <div class="form-scroll">
+            <div id="forgotForm">
+              <div class="group">
+                <div class="row"><input id="resetEmail" type="email" placeholder="Email" autocomplete="email"></div>
+              </div>
+              <div class="inset-btn">
+                <button class="btn-primary" type="button" id="sendReset">Send Reset Link</button>
+              </div>
+            </div>
+            <div class="group hidden" id="forgotSent">
+              <div class="row" style="padding-top:12px;padding-bottom:12px;min-height:auto">
+                <p class="row-label" id="forgotSentCopy" style="color:var(--DSColor-textSecondary);font-size:var(--DSFont-sizeSm)"></p>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Client: empty pro list -->
+        <main class="pane home" data-pane="pro-list-empty">
+          <div class="brandmark" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+          <p class="empty-copy">No pros yet.</p>
+          <div class="home-spacer"></div>
+          <div class="footer">
+            <button class="footer-item" type="button" data-go="settings-client">Settings</button>
+            <button class="footer-item" type="button" data-signout="client">Sign Out</button>
+          </div>
+        </main>
+
+        <!-- Client: pro list with Pros header + #112 cells -->
+        <main class="pane home" data-pane="pro-list">
+          <div class="brandmark" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+          <h1 class="home-title">Pros</h1>
+          <div class="pro-list" role="list">
+            <button class="pro-row" type="button" role="listitem" data-go="book-mow" aria-label="Tims lawn care, Tim Parmentier, IT-77C9DF12, Edging, Fertilizing, Lawn Mowing, Leaf Blowing, Trimming">
+              <span class="pro-title">Tims lawn care</span>
+              <span class="pro-name">Tim Parmentier</span>
+              <span class="pro-itid">IT-77C9DF12</span>
+              <span class="pro-services">Edging, Fertilizing, Lawn Mowing, Leaf Blowing, Trimming</span>
+            </button>
+            <button class="pro-row" type="button" role="listitem" data-go="book-mow" aria-label="Greenway Lawn, IT-18A4B2C0, Lawn Mowing, Trimming">
+              <span class="pro-title">Greenway Lawn</span>
+              <span class="pro-itid">IT-18A4B2C0</span>
+              <span class="pro-services">Lawn Mowing, Trimming</span>
+            </button>
+            <button class="pro-row" type="button" role="listitem" data-go="book-mow" aria-label="mow-it-pro-18">
+              <span class="pro-title">mow-it-pro-18</span>
+            </button>
+          </div>
+          <div class="home-spacer"></div>
+          <div class="footer">
+            <button class="footer-item" type="button" data-go="settings-client">Settings</button>
+            <button class="footer-item" type="button" data-signout="client">Sign Out</button>
+          </div>
+        </main>
+
+        <!-- Client: booked Home -->
+        <main class="pane home" data-pane="booked-home">
+          <div class="brandmark" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+          <h1 class="home-title">Your next mow</h1>
+          <button class="next-mow" type="button" id="nextMow" aria-haspopup="dialog" aria-controls="nextSheet" style="margin-top:var(--DSSpace-lg)">
+            <p class="line-address">123 Greenway Dr</p>
+            <p class="line-meta">Sat Aug 22 · 9:00 AM</p>
+            <p class="line-meta">Edge · Blow</p>
+            <p class="line-price">$45</p>
+          </button>
+          <div class="home-spacer"></div>
+          <div class="footer">
+            <button class="footer-item" type="button" data-go="settings-client">Settings</button>
+            <button class="footer-item" type="button" data-signout="client">Sign Out</button>
+          </div>
+        </main>
+
+        <!-- Client: Book a Mow steps (one dropdown item; in-phone Continue walks the path) -->
+        <main class="pane book" data-pane="book-mow">
+          <div class="ios-nav is-canvas">
+            <button class="nav-icon" type="button" id="bookClose" aria-label="Close">
+              <svg width="14" height="14"><use href="#icon-x"/></svg>
+            </button>
+            <h1 class="ios-nav-title">Book a Mow</h1>
+            <span></span>
+          </div>
+
+          <div class="book-body" id="stepAddress">
+            <div class="pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--DSColor-textSecondary)" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              <input id="addressField" type="text" placeholder="Where should we mow?" autocomplete="street-address">
+            </div>
+            <button class="text-btn" type="button" id="useLocation">Use current location</button>
+            <div class="home-spacer"></div>
+          </div>
+
+          <div class="book-body hidden" id="stepWhen">
+            <div class="pill">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--DSColor-textSecondary)" stroke-width="1.8" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              <span class="pill-text" id="whenAddressPill">123 Greenway Dr</span>
+            </div>
+            <div class="mode-picker" role="tablist" aria-label="When">
+              <button type="button" data-mode="day" aria-pressed="true">Day</button>
+              <button type="button" data-mode="week" aria-pressed="false">Week</button>
+              <button type="button" data-mode="month" aria-pressed="false">Month</button>
+            </div>
+            <div class="when-head" id="whenDayHead">
+              <h2 class="when-title" id="dayHeading">Thu Aug 20</h2>
+              <p class="when-sub">First visit — available times</p>
+            </div>
+            <div class="when-head hidden" id="whenWeekHead">
+              <h2 class="when-title" id="weekHeading">Aug 16 – 22, 2026</h2>
+              <div class="week-strip" id="weekStrip"></div>
+              <p class="when-sub" id="weekCaption">First visit — Thu Aug 20</p>
+            </div>
+            <div class="time-scroll">
+              <div class="hidden" id="whenMonthHead">
+                <div class="month-nav">
+                  <button class="nav-icon" type="button" id="prevMonth" aria-label="Previous month">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+                  </button>
+                  <h3 id="monthHeading">August 2026</h3>
+                  <button class="nav-icon nav-end" type="button" id="nextMonth" aria-label="Next month">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 2l5 5-5 5"/></svg>
+                  </button>
+                </div>
+                <div class="month-grid" id="monthGrid"></div>
+              </div>
+              <div class="time-list" id="timeList" style="margin-top:var(--DSSpace-md)"></div>
+            </div>
+          </div>
+
+          <div class="book-body hidden" id="stepExtras">
+            <h2 class="extras-title">Additional services</h2>
+            <div class="extra-list">
+              <button class="choice" type="button" data-extra="Edge">Edge</button>
+              <button class="choice" type="button" data-extra="Blow">Blow</button>
+              <button class="choice" type="button" data-extra="Cleanup">Cleanup</button>
+            </div>
+            <div class="home-spacer"></div>
+          </div>
+
+          <div class="book-body is-confirm hidden" id="stepConfirm">
+            <p class="line-address" id="confirmAddress">123 Greenway Dr, Austin, TX 78704</p>
+            <p class="line-meta" id="confirmWhen">Sat Aug 22 · 9:00 AM</p>
+            <p class="line-meta hidden" id="confirmExtras"></p>
+            <p class="sheet-price">$45</p>
+            <div class="home-spacer"></div>
+          </div>
+
+          <div class="book-bar">
+            <button class="btn-primary" type="button" id="bookContinue" disabled>Continue</button>
+          </div>
+        </main>
+
+        <!-- Client: Settings -->
+        <main class="pane form-pane" data-pane="settings-client">
+          <div class="ios-nav">
+            <button class="nav-text" type="button" id="settingsClientClose">Close</button>
+            <h1 class="ios-nav-title">Settings</h1>
+            <span></span>
+          </div>
+          <div class="form-scroll">
+            <p class="group-label">Account</p>
+            <div class="group">
+              <div class="row"><span class="row-label">It ID</span><span class="row-value is-mono">IT-4F2A91B0</span></div>
+              <div class="row"><span class="row-label">Role</span><span class="row-value">Client</span></div>
+            </div>
+            <p class="group-label">Sign-In Methods</p>
+            <div class="group">
+              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button></div>
+            </div>
+            <p class="group-label">Add a backup method</p>
+            <div class="inset-btn" style="margin-bottom:var(--DSSpace-lg)">
+              <button class="btn-apple" type="button">
+                <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M12.8 10.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.6.8-3.3.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2.1-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.5zM10.8 4.3c.6-.8 1.1-1.9.9-3-1 .1-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.3-.6 3-1.5z"/></svg>
+                Continue with Apple
+              </button>
+            </div>
+            <div class="group">
+              <button class="row row-link is-danger" type="button" data-alert="delete">Delete Account</button>
+            </div>
+            <p class="group-foot">Your account is deactivated immediately and permanently erased after 30 days. Signing back in before then lets you undo this.</p>
+          </div>
+        </main>
+
+        <!-- Pro: Onboarding -->
+        <main class="pane form-pane" data-pane="onboarding">
+          <div class="ios-nav">
+            <button class="nav-text" type="button" data-signout="onboarding">Sign Out</button>
+            <h1 class="ios-nav-title">Set Up Your Profile</h1>
+            <span></span>
+          </div>
+          <div class="form-scroll">
+            <div class="group">
+              <div class="row" style="padding-top:12px;padding-bottom:12px;min-height:auto;flex-direction:column;align-items:flex-start;gap:4px">
+                <strong class="row-label">Welcome, Pro</strong>
+                <span style="font-size:var(--DSFont-sizeSm);color:var(--DSColor-textSecondary)">Tell us about your business so clients can find you.</span>
+              </div>
+            </div>
+            <p class="group-label">Business Info</p>
+            <div class="group">
+              <div class="row"><input id="bizName" type="text" placeholder="Business name" autocomplete="organization"></div>
+              <div class="row"><input id="serviceArea" type="text" placeholder="Service area (e.g. Austin, TX)"></div>
+            </div>
+            <p class="group-label">Services Offered</p>
+            <div class="group" id="serviceToggles">
+              <label class="row toggle-row">Lawn Mowing<span class="switch"><input type="checkbox" value="Lawn Mowing"><i></i></span></label>
+              <label class="row toggle-row">Edging<span class="switch"><input type="checkbox" value="Edging"><i></i></span></label>
+              <label class="row toggle-row">Leaf Blowing<span class="switch"><input type="checkbox" value="Leaf Blowing"><i></i></span></label>
+              <label class="row toggle-row">Trimming<span class="switch"><input type="checkbox" value="Trimming"><i></i></span></label>
+              <label class="row toggle-row">Fertilizing<span class="switch"><input type="checkbox" value="Fertilizing"><i></i></span></label>
+            </div>
+            <div class="inset-btn">
+              <button class="btn-primary" type="button" id="onboardContinue" disabled>Continue</button>
+            </div>
+          </div>
+        </main>
+
+        <!-- Pro: Home — Appointments | Payments (#116). Welcome skipped so it does not crowd the list. -->
+        <main class="pane pro-home" data-pane="pro-home">
+          <div class="home-seg" role="tablist" aria-label="Pro Home">
+            <button type="button" data-pro-tab="appointments" aria-pressed="true">Appointments</button>
+            <button type="button" data-pro-tab="payments" aria-pressed="false">Payments</button>
+          </div>
+
+          <div class="pro-home-body" id="proAppointments">
+            <div class="pro-list" id="apptList" role="list">
+              <button class="next-mow" type="button" role="listitem" data-job="greenway" aria-label="123 Greenway Dr, Sat Aug 22 9:00 AM, Edge, Blow, $45">
+                <p class="line-address">123 Greenway Dr</p>
+                <p class="line-meta">Sat Aug 22 · 9:00 AM</p>
+                <p class="line-meta">Edge · Blow</p>
+                <p class="line-price">$45</p>
+              </button>
+              <button class="next-mow" type="button" role="listitem" data-job="cedar" aria-label="440 Cedar Ln, Mon Aug 24 11:00 AM, $45">
+                <p class="line-address">440 Cedar Ln</p>
+                <p class="line-meta">Mon Aug 24 · 11:00 AM</p>
+                <p class="line-price">$45</p>
+              </button>
+            </div>
+            <p class="empty-copy hidden" id="apptEmpty">No appointments yet.</p>
+            <div class="home-spacer"></div>
+          </div>
+
+          <div class="pro-home-body hidden" id="proPayments">
+            <div class="status-block">
+              <svg class="status-icon is-warn" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="4" y="12" width="32" height="18" rx="3"/>
+                <path d="M4 18h32M10 24h8"/>
+              </svg>
+              <h3>Set up payouts</h3>
+              <p>Connect your bank account to start receiving payments for completed jobs.</p>
+              <button class="btn-primary" type="button">Connect with Stripe</button>
+            </div>
+            <div class="home-spacer"></div>
+          </div>
+
+          <div class="footer">
+            <button class="footer-item" type="button" data-go="settings-pro">Settings</button>
+            <button class="footer-item" type="button" data-signout="pro">Sign Out</button>
+          </div>
+        </main>
+
+        <!-- Pro: Settings -->
+        <main class="pane form-pane" data-pane="settings-pro">
+          <div class="ios-nav">
+            <button class="nav-text" type="button" data-go="pro-home">Close</button>
+            <h1 class="ios-nav-title">Settings</h1>
+            <span></span>
+          </div>
+          <div class="form-scroll">
+            <p class="group-label">Account</p>
+            <div class="group">
+              <div class="row"><span class="row-label">It ID</span><span class="row-value is-mono">IT-77C9DF12</span></div>
+              <div class="row"><span class="row-label">Role</span><span class="row-value">Pro</span></div>
+            </div>
+            <p class="group-label">Sign-In Methods</p>
+            <div class="group">
+              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button></div>
+            </div>
+            <p class="group-label">Add a backup method</p>
+            <div class="inset-btn" style="margin-bottom:var(--DSSpace-lg)">
+              <button class="btn-apple" type="button">
+                <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"><path d="M12.8 10.6c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.6.8-3.3.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2.1-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.3-.9-2.3-3.5zM10.8 4.3c.6-.8 1.1-1.9.9-3-1 .1-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.3-.6 3-1.5z"/></svg>
+                Continue with Apple
+              </button>
+            </div>
+            <div class="group">
+              <button class="row row-link is-danger" type="button" data-alert="delete">Delete Account</button>
+            </div>
+            <p class="group-foot">Your account is deactivated immediately and permanently erased after 30 days. Signing back in before then lets you undo this.</p>
+          </div>
+        </main>
+
+        <!-- Client next-mow detail — reuse booked-home sheet -->
+        <div class="sheet-layer" id="nextLayer">
+          <div class="sheet-scrim" aria-hidden="true"></div>
+          <div class="sheet" id="nextSheet" role="dialog" aria-modal="true" aria-labelledby="nextTitle" hidden>
+            <div class="sheet-chrome" id="nextChrome">
+              <div class="sheet-handle-hit" aria-label="Dismiss"><div class="sheet-handle"></div></div>
+              <div class="sheet-nav">
+                <button class="sheet-close" type="button" id="nextClose" aria-label="Close">
+                  <svg width="14" height="14"><use href="#icon-x"/></svg>
+                </button>
+                <h2 class="sheet-title" id="nextTitle">Your next mow</h2>
+                <span></span>
+              </div>
+            </div>
+            <div class="sheet-body">
+              <p class="line-address">123 Greenway Dr, Austin, TX 78704</p>
+              <p class="line-meta">Sat Aug 22 · 9:00 AM</p>
+              <p class="line-meta">Edge · Blow</p>
+              <p class="sheet-price">$45</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pro job detail — same sheet type/padding/chrome as client next-mow; read-only -->
+        <div class="sheet-layer" id="jobLayer">
+          <div class="sheet-scrim" aria-hidden="true"></div>
+          <div class="sheet" id="jobSheet" role="dialog" aria-modal="true" aria-labelledby="jobTitle" hidden>
+            <div class="sheet-chrome" id="jobChrome">
+              <div class="sheet-handle-hit" aria-label="Dismiss"><div class="sheet-handle"></div></div>
+              <div class="sheet-nav">
+                <button class="sheet-close" type="button" id="jobClose" aria-label="Close">
+                  <svg width="14" height="14"><use href="#icon-x"/></svg>
+                </button>
+                <h2 class="sheet-title" id="jobTitle">Job</h2>
+                <span></span>
+              </div>
+            </div>
+            <div class="sheet-body">
+              <p class="line-address" id="jobAddress">123 Greenway Dr, Austin, TX 78704</p>
+              <p class="line-meta" id="jobWhen">Sat Aug 22 · 9:00 AM</p>
+              <p class="line-meta" id="jobExtras">Edge · Blow</p>
+              <p class="sheet-price" id="jobPrice">$45</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert-layer" id="alertLayer" role="dialog" aria-modal="true" aria-labelledby="alertTitle">
+          <div class="alert-card">
+            <h3 id="alertTitle"></h3>
+            <p id="alertMessage"></p>
+            <button type="button" class="is-danger" id="alertConfirm"></button>
+            <button type="button" class="is-cancel" id="alertCancel">Cancel</button>
+          </div>
+        </div>
+
+        <div class="home-indicator" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="hub.js"></script>
+
 </body>
 </html>
