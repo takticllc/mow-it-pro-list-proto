@@ -339,7 +339,7 @@
             </div>
             <p class="group-label">Sign-In Methods</p>
             <div class="group">
-              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button></div>
+              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button>
             </div>
             <p class="group-label">Add a backup method</p>
             <div class="inset-btn" style="margin-bottom:var(--DSSpace-lg)">
@@ -390,13 +390,15 @@
 
         <!-- Pro: Home — Appointments | Payments (#116). Welcome skipped so it does not crowd the list. -->
         <main class="pane pro-home" data-pane="pro-home">
-          <h1 class="home-title" id="scheduleTitle">Your schedule</h1>
+          <div class="brandmark" aria-hidden="true"><svg viewBox="0 0 112 112"><use href="#brandmark-svg"/></svg></div>
+          <p class="pro-biz">Tims lawn care</p>
           <div class="home-seg" role="tablist" aria-label="Pro Home">
             <button type="button" data-pro-tab="appointments" aria-pressed="true">Appointments</button>
             <button type="button" data-pro-tab="payments" aria-pressed="false">Payments</button>
           </div>
 
           <div class="pro-home-body" id="proAppointments">
+            <h1 class="home-title" id="scheduleTitle">Your schedule</h1>
             <div class="pro-list" id="apptList" role="list">
               <button class="next-mow" type="button" role="listitem" data-job="greenway" aria-label="123 Greenway Dr, Sat Aug 22 9:00 AM, Edge, Blow, $45">
                 <p class="line-address">123 Greenway Dr</p>
@@ -448,7 +450,7 @@
             </div>
             <p class="group-label">Sign-In Methods</p>
             <div class="group">
-              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button></div>
+              <div class="row"><span class="row-label">Email &amp; Password</span><button class="row-link is-danger" type="button" disabled>Remove</button>
             </div>
             <p class="group-label">Add a backup method</p>
             <div class="inset-btn" style="margin-bottom:var(--DSSpace-lg)">
