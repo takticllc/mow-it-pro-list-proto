@@ -377,6 +377,7 @@
         }
         document.getElementById("proAppointments").classList.toggle("hidden", proHomeTab !== "appointments");
         document.getElementById("proPayments").classList.toggle("hidden", proHomeTab !== "payments");
+        document.getElementById("scheduleTitle").classList.toggle("hidden", proHomeTab === "payments");
         document.getElementById("apptList").classList.toggle("hidden", proHomeEmpty);
         document.getElementById("apptEmpty").classList.toggle("hidden", !proHomeEmpty);
       }
