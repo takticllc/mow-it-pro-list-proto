@@ -1146,3 +1146,15 @@
       .sheet, .sheet-scrim { transition: none; }
     }
   
+
+    .pro-home { align-items: center; padding: 0 var(--DSSpace-lg); }
+    .pro-biz {
+      margin: var(--DSSpace-lg) 0 0;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightSemibold);
+      color: var(--DSColor-textPrimary);
+      line-height: 1.25;
+    }
+    .pro-home .home-seg { width: 100%; margin-top: var(--DSSpace-lg); }
+    .pro-home-body { width: 100%; }
+    .pro-home-body .home-title { align-self: flex-start; }
