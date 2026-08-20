@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#FFFFFF">
-  <title>Mow It · Client pro list cell (#108)</title>
+  <title>Mow It · Client pro list cell (#112)</title>
   <style>
+    /* Live tokens from shared/design-tokens — named after DSColor / DSSpace / DSRadius / DSFont / DSSize */
     :root {
       --DSColor-brandPrimary: #339900;
       --DSColor-brandSecondary: #2B8000;
@@ -20,6 +21,7 @@
       --DSColor-statusWarning: #EAB308;
       --DSColor-statusSuccess: #339900;
       --DSColor-borderDefault: #E5E5E5;
+
       --DSSpace-xxs: 2px;
       --DSSpace-xs: 4px;
       --DSSpace-sm: 8px;
@@ -28,15 +30,18 @@
       --DSSpace-xl: 24px;
       --DSSpace-xxl: 32px;
       --DSSpace-xxxl: 40px;
+
       --DSRadius-sm: 4px;
       --DSRadius-md: 10px;
       --DSRadius-lg: 16px;
       --DSRadius-full: 9999px;
+
       --DSSize-controlHeight: 50px;
       --DSSize-controlMaxWidth: 375px;
       --DSSize-iconSm: 20px;
       --DSSize-iconLg: 40px;
       --DSSize-iconXl: 56px;
+
       --DSFont-sizeXs: 12px;
       --DSFont-sizeSm: 14px;
       --DSFont-sizeMd: 16px;
@@ -48,6 +53,7 @@
       --DSFont-weightMedium: 500;
       --DSFont-weightSemibold: 600;
       --DSFont-weightBold: 700;
+
       --phone-width: 390px;
       --phone-height: 844px;
       --brandmark-size: calc(var(--DSSize-iconXl) * 2);
@@ -55,6 +61,7 @@
       --tap: 44px;
       --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
     }
+
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
     body {
@@ -64,6 +71,7 @@
       -webkit-font-smoothing: antialiased;
       min-height: 100dvh;
     }
+
     .stage {
       min-height: 100dvh;
       display: flex;
@@ -73,106 +81,291 @@
       padding: 28px 16px;
       gap: 16px;
     }
-    .caption { margin: 0; color: #a3a3a3; font-size: 13px; letter-spacing: 0.01em; text-align: center; }
-    .proto-tools { display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .proto-tools-label { color: #737373; font-size: 12px; }
+
+    .caption {
+      margin: 0;
+      color: #a3a3a3;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+
+    .proto-tools {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .proto-tools-label {
+      color: #737373;
+      font-size: 12px;
+    }
+
     .proto-toggle {
-      appearance: none; border: 1px solid #404040; background: #1a1a1a; color: #d4d4d4;
-      font-family: inherit; font-size: 13px; min-height: var(--tap); min-width: var(--tap);
-      padding: 0 14px; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent;
+      appearance: none;
+      border: 1px solid #404040;
+      background: #1a1a1a;
+      color: #d4d4d4;
+      font-family: inherit;
+      font-size: 13px;
+      min-height: var(--tap);
+      min-width: var(--tap);
+      padding: 0 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
-    .proto-toggle[aria-pressed="true"] { border-color: #339900; color: #ffffff; background: #1f2e14; }
+
+    .proto-toggle[aria-pressed="true"] {
+      border-color: #339900;
+      color: #ffffff;
+      background: #1f2e14;
+    }
+
     .proto-toggle:active { filter: brightness(1.15); }
+    .proto-toggle:focus-visible {
+      outline: 2px solid var(--DSColor-brandPrimary);
+      outline-offset: 2px;
+    }
+
     .phone {
-      width: var(--phone-width); height: var(--phone-height); max-width: 100%;
-      background: #0a0a0a; border-radius: 48px; padding: 12px;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45); flex-shrink: 0;
+      width: var(--phone-width);
+      height: var(--phone-height);
+      max-width: 100%;
+      background: #0a0a0a;
+      border-radius: 48px;
+      padding: 12px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+      flex-shrink: 0;
     }
+
     .screen {
-      position: relative; width: 100%; height: 100%; background: var(--DSColor-bgCanvas);
-      border-radius: 36px; overflow: hidden; isolation: isolate;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--DSColor-bgCanvas);
+      border-radius: 36px;
+      overflow: hidden;
+      isolation: isolate;
     }
+
     .statusbar {
-      display: flex; align-items: center; justify-content: space-between; height: 54px;
-      padding: 14px 28px 0; font-size: 15px; font-weight: var(--DSFont-weightSemibold);
-      color: var(--DSColor-textPrimary); pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+      padding: 14px 28px 0;
+      font-size: 15px;
+      font-weight: var(--DSFont-weightSemibold);
+      color: var(--DSColor-textPrimary);
+      pointer-events: none;
     }
-    .statusbar-icons { display: flex; align-items: center; gap: 6px; }
+
+    .statusbar-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .home {
-      display: flex; flex-direction: column; align-items: center;
-      height: calc(100% - 54px); padding: 0 var(--DSSpace-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: calc(100% - 54px);
+      padding: 0 var(--DSSpace-lg);
     }
+
     .brandmark {
-      width: var(--brandmark-size); height: var(--brandmark-size);
-      border-radius: var(--brandmark-radius); overflow: hidden;
-      margin-top: var(--DSSpace-sm); flex-shrink: 0;
+      width: var(--brandmark-size);
+      height: var(--brandmark-size);
+      border-radius: var(--brandmark-radius);
+      overflow: hidden;
+      margin-top: var(--DSSpace-sm);
+      flex-shrink: 0;
     }
+
     .brandmark svg { display: block; width: 100%; height: 100%; }
+
     .pane {
-      display: flex; flex-direction: column; align-items: center; width: 100%;
-      flex: 1; min-height: 0; overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
     }
+
     .pane[hidden] { display: none; }
+
+    .home-title {
+      margin: var(--DSSpace-lg) 0 0;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightSemibold);
+      line-height: 1.25;
+      color: var(--DSColor-textPrimary);
+    }
+
     .pro-list {
-      display: flex; flex-direction: column; width: 100%; margin-top: var(--DSSpace-lg);
-      gap: var(--DSSpace-sm); overflow: auto; min-height: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: var(--DSSpace-lg);
+      gap: var(--DSSpace-sm);
+      overflow: auto;
+      min-height: 0;
     }
+
     .pro-row {
-      display: flex; flex-direction: column; align-items: flex-start; gap: var(--DSSpace-xxs);
-      width: 100%; padding: var(--DSSpace-lg); border: 0; border-radius: var(--DSRadius-lg);
-      background: var(--DSColor-bgSurfaceRaised); text-align: left; cursor: pointer;
-      -webkit-tap-highlight-color: transparent; min-height: var(--tap); font-family: inherit; line-height: 1.3;
+      display: block;
+      width: 100%;
+      padding: var(--DSSpace-lg);
+      border: 0;
+      border-radius: var(--DSRadius-lg);
+      background: var(--DSColor-bgSurfaceRaised);
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      min-height: var(--tap);
+      font-family: inherit;
     }
+
     .pro-row:active { filter: brightness(0.97); }
-    .pro-title { font-size: var(--DSFont-sizeMd); font-weight: var(--DSFont-weightSemibold); color: var(--DSColor-textPrimary); }
-    .pro-name { font-size: var(--DSFont-sizeSm); font-weight: var(--DSFont-weightRegular); color: var(--DSColor-textSecondary); }
-    .pro-itid { font-size: var(--DSFont-sizeXs); font-weight: var(--DSFont-weightRegular); color: var(--DSColor-textSecondary); }
-    .pro-services { font-size: var(--DSFont-sizeXs); font-weight: var(--DSFont-weightRegular); color: var(--DSColor-textSecondary); overflow-wrap: anywhere; }
+    .pro-row:focus-visible {
+      outline: 2px solid var(--DSColor-brandPrimary);
+      outline-offset: 2px;
+    }
+
+    .pro-title {
+      display: block;
+      margin: 0;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightSemibold);
+      color: var(--DSColor-textPrimary);
+      line-height: 1.3;
+    }
+
+    .pro-name,
+    .pro-itid,
+    .pro-services {
+      display: block;
+      margin: var(--DSSpace-sm) 0 0;
+      font-size: var(--DSFont-sizeSm);
+      font-weight: var(--DSFont-weightRegular);
+      color: var(--DSColor-textSecondary);
+      line-height: 1.3;
+    }
+
+    .pro-services {
+      overflow-wrap: anywhere;
+    }
+
     .empty-copy {
-      margin: var(--DSSpace-lg) 0 0; font-size: var(--DSFont-sizeMd); font-weight: var(--DSFont-weightSemibold);
-      line-height: 1.25; color: var(--DSColor-textPrimary); text-align: center;
+      margin: var(--DSSpace-lg) 0 0;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightSemibold);
+      line-height: 1.25;
+      color: var(--DSColor-textPrimary);
+      text-align: center;
     }
+
     .note-copy {
-      margin: var(--DSSpace-lg) 0 0; width: 100%; font-size: var(--DSFont-sizeMd);
-      font-weight: var(--DSFont-weightRegular); line-height: 1.4; color: var(--DSColor-textPrimary); text-align: center;
+      margin: var(--DSSpace-lg) 0 0;
+      width: 100%;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightRegular);
+      line-height: 1.4;
+      color: var(--DSColor-textPrimary);
+      text-align: center;
     }
+
     .note-back {
-      appearance: none; border: 0; background: none; margin-top: var(--DSSpace-xl);
-      color: var(--DSColor-brandPrimary); font-family: inherit; font-size: var(--DSFont-sizeMd);
-      font-weight: var(--DSFont-weightRegular); min-height: var(--tap); min-width: var(--tap);
-      padding: 0 var(--DSSpace-lg); cursor: pointer; -webkit-tap-highlight-color: transparent;
+      appearance: none;
+      border: 0;
+      background: none;
+      margin-top: var(--DSSpace-xl);
+      color: var(--DSColor-brandPrimary);
+      font-family: inherit;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightRegular);
+      min-height: var(--tap);
+      min-width: var(--tap);
+      padding: 0 var(--DSSpace-lg);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
+
+    .note-back:active { opacity: 0.55; }
+    .note-back:focus-visible {
+      outline: 2px solid var(--DSColor-brandPrimary);
+      outline-offset: 2px;
+      border-radius: var(--DSRadius-full);
+    }
+
     .home-spacer { flex: 1; }
+
     .footer {
-      display: flex; align-items: center; justify-content: center; gap: var(--DSSpace-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--DSSpace-lg);
       padding-bottom: calc(var(--DSSpace-xl) + 18px);
     }
+
     .footer-item {
-      appearance: none; border: 0; background: none; color: var(--DSColor-brandPrimary);
-      font-family: inherit; font-size: var(--DSFont-sizeMd); font-weight: var(--DSFont-weightRegular);
-      min-height: var(--tap); min-width: var(--tap); padding: 0 var(--DSSpace-sm);
-      cursor: default; pointer-events: none;
+      appearance: none;
+      border: 0;
+      background: none;
+      color: var(--DSColor-brandPrimary);
+      font-family: inherit;
+      font-size: var(--DSFont-sizeMd);
+      font-weight: var(--DSFont-weightRegular);
+      min-height: var(--tap);
+      min-width: var(--tap);
+      padding: 0 var(--DSSpace-sm);
+      cursor: default;
+      pointer-events: none;
     }
+
     .home-indicator {
-      position: absolute; left: 50%; bottom: 8px; width: 134px; height: 5px; margin-left: -67px;
-      border-radius: var(--DSRadius-full); background: var(--DSColor-textPrimary); opacity: 0.18; pointer-events: none;
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 134px;
+      height: 5px;
+      margin-left: -67px;
+      border-radius: var(--DSRadius-full);
+      background: var(--DSColor-textPrimary);
+      opacity: 0.18;
+      pointer-events: none;
     }
+
     @media (max-width: 480px) {
       .stage { padding: 12px 0 0; gap: 10px; }
       .caption { padding: 0 16px; }
-      .phone { width: 100%; height: calc(100dvh - 120px); max-width: none; border-radius: 0; padding: 0; box-shadow: none; }
+      .phone {
+        width: 100%;
+        height: calc(100dvh - 120px);
+        max-width: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+      }
       .screen { border-radius: 0; }
     }
   </style>
 </head>
 <body>
   <div class="stage">
-    <p class="caption">Mow It · #108 · disposable click-through · tap a pro</p>
+    <p class="caption">Mow It · #112 · disposable click-through · tap a pro</p>
+
     <div class="proto-tools" role="group" aria-label="Proto list state">
       <span class="proto-tools-label">Proto</span>
       <button type="button" class="proto-toggle" id="toggleList" aria-pressed="true">List</button>
       <button type="button" class="proto-toggle" id="toggleEmpty" aria-pressed="false">Empty</button>
     </div>
+
     <div class="phone">
       <div class="screen" id="screen">
         <div class="statusbar" aria-hidden="true">
@@ -183,6 +376,7 @@
             <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0.5" y="1" width="21" height="10" rx="2.2" stroke="currentColor" fill="none" stroke-width="1"/><rect x="2" y="2.5" width="16" height="7" rx="1.2" fill="currentColor"/><rect x="22.2" y="4" width="1.6" height="4" rx="0.6" fill="currentColor"/></svg>
           </span>
         </div>
+
         <main class="home">
           <div class="brandmark" aria-hidden="true">
             <svg viewBox="0 0 112 112" role="img" aria-label="Mow It">
@@ -199,7 +393,9 @@
               </g>
             </svg>
           </div>
+
           <div class="pane" id="paneList">
+            <h1 class="home-title">Pros</h1>
             <div class="pro-list" role="list">
               <button class="pro-row" type="button" role="listitem" data-pro="Tims lawn care" aria-label="Tims lawn care, Tim Parmentier, IT-77C9DF12, Edging, Fertilizing, Lawn Mowing, Leaf Blowing, Trimming">
                 <span class="pro-title">Tims lawn care</span>
@@ -218,24 +414,29 @@
             </div>
             <div class="home-spacer"></div>
           </div>
+
           <div class="pane" id="paneEmpty" hidden>
             <p class="empty-copy">No pros yet.</p>
             <div class="home-spacer"></div>
           </div>
+
           <div class="pane" id="paneNote" hidden>
             <p class="note-copy" id="noteCopy">Book a Mow stays as shipped: address → when → extras → confirm.</p>
             <button class="note-back" type="button" id="noteBack">Back</button>
             <div class="home-spacer"></div>
           </div>
+
           <div class="footer">
             <span class="footer-item">Settings</span>
             <span class="footer-item">Sign Out</span>
           </div>
         </main>
+
         <div class="home-indicator" aria-hidden="true"></div>
       </div>
     </div>
   </div>
+
   <script>
     (function () {
       var paneList = document.getElementById("paneList");
@@ -246,28 +447,43 @@
       var toggleList = document.getElementById("toggleList");
       var toggleEmpty = document.getElementById("toggleEmpty");
       var listState = "list";
+
       function showPane(pane) {
         paneList.hidden = pane !== paneList;
         paneEmpty.hidden = pane !== paneEmpty;
         paneNote.hidden = pane !== paneNote;
       }
+
       function setToggles(empty) {
         toggleList.setAttribute("aria-pressed", empty ? "false" : "true");
         toggleEmpty.setAttribute("aria-pressed", empty ? "true" : "false");
       }
-      function showList() { listState = "list"; showPane(paneList); setToggles(false); }
-      function showEmpty() { listState = "empty"; showPane(paneEmpty); setToggles(true); }
+
+      function showList() {
+        listState = "list";
+        showPane(paneList);
+        setToggles(false);
+      }
+
+      function showEmpty() {
+        listState = "empty";
+        showPane(paneEmpty);
+        setToggles(true);
+      }
+
       function showNote(name) {
         noteCopy.textContent = name + " — Book a Mow stays as shipped: address → when → extras → confirm.";
         showPane(paneNote);
         noteBack.focus();
       }
+
       toggleList.addEventListener("click", showList);
       toggleEmpty.addEventListener("click", showEmpty);
       noteBack.addEventListener("click", function () {
         if (listState === "empty") showEmpty();
         else showList();
       });
+
       Array.prototype.forEach.call(document.querySelectorAll(".pro-row"), function (row) {
         row.addEventListener("click", function () {
           showNote(row.getAttribute("data-pro"));
